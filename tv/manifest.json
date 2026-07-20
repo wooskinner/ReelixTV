@@ -1,0 +1,25 @@
+{
+  "name": "Reelix TV",
+  "short_name": "Reelix TV",
+  "description": "Stream movies and shows on your TV",
+  "start_url": "/ReelixTV/tv/",
+  "scope": "/ReelixTV/",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#0D0B14",
+  "theme_color": "#0D0B14",
+  "icons": [
+    {
+      "src": "/ReelixTV/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/ReelixTV/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

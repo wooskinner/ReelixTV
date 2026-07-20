@@ -1,0 +1,51 @@
+name: Deploy ReelixTV to GitHub Pages
+
+on:
+  push:
+    branches: [ main, master ] # Fires when you push code to main or master branch
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      # If you are using standard frameworks, install and build
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Assets
+        run: npm run build # Spits out production code into a folder (usually 'dist' or 'build')
+
+      - name: Upload Artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Change 'dist' below to 'build' if using Create React App
+          path: './dist' 
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

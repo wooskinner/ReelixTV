@@ -1,0 +1,8 @@
+# Navigate to your project
+cd /path/to/reelix
+
+# Create a folder for the TV app deployment
+mkdir -p tv-app
+cp -r tv/* tv-app/
+cp -r icons tv-app/
+cp -r styles.css tv-app/

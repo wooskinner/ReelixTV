@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1280">
+    <title>Reelix TV</title>
+    
+    <!-- TV-specific meta -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#0D0B14">
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="/ReelixTV/tv/manifest.json">
+    
+    <!-- TV Styles -->
+    <link rel="stylesheet" href="/ReelixTV/tv/tv-styles.css">
+    
+    <style>
+        /* Extra small fixes for GitHub Pages */
+        .tv-poster img {
+            background: #1A1430;
+        }
+        .tv-hero-bg {
+            background-color: #1A1430;
+        }
+    </style>
+</head>
+<body>
+
+<div id="tv-app">
+    
+    <!-- ===== NAVIGATION ===== -->
+    <nav id="tv-nav">
+        <div class="tv-logo">REELIX <span class="tv-badge">TV</span></div>
+        
+        <div class="tv-nav-links">
+            <button class="tv-nav-btn active" data-view="home">🏠 Home</button>
+            <button class="tv-nav-btn" data-view="browse">📂 Browse</button>
+            <button class="tv-nav-btn" data-view="mylist">❤️ My List</button>
+            <button class="tv-nav-btn" data-view="search">🔍 Search</button>
+        </div>
+        
+        <div id="tv-status-pill"></div>
+    </nav>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main id="tv-main">
+        
+        <!-- ===== HOME VIEW ===== -->
+        <section id="tv-home" class="tv-view active">
+            
+            <!-- Hero Carousel -->
+            <div class="tv-hero" id="tv-hero">
+                <div class="tv-hero-bg" id="tv-hero-bg"></div>
+                <div class="tv-hero-content">
+                    <h1 id="tv-hero-title">Loading...</h1>
+                    <p id="tv-hero-desc"></p>
+                    <div class="tv-hero-meta">
+                        <span id="tv-hero-rating">★ 0.0</span>
+                        <span id="tv-hero-year">2024</span>
+                        <span id="tv-hero-genre">Action</span>
+                    </div>
+                    <div class="tv-hero-actions">
+                        <button class="tv-btn-primary" id="tv-hero-play">▶ Play Now</button>
+                        <button class="tv-btn-secondary" id="tv-hero-info">ℹ More Info</button>
+                    </div>
+                </div>
+                <div class="tv-hero-dots" id="tv-hero-dots"></div>
+            </div>
+
+            <!-- Content Rows -->
+            <div class="tv-rows" id="tv-rows"></div>
+        </section>
+
+        <!-- ===== BROWSE VIEW ===== -->
+        <section id="tv-browse" class="tv-view">
+            <div class="tv-browse-header">
+                <h2>📂 Browse</h2>
+                <div class="tv-browse-filters" id="tv-browse-filters">
+                    <button class="tv-pill active" data-filter="all">All</button>
+                    <button class="tv-pill" data-filter="movie">Movies</button>
+                    <button class="tv-pill" data-filter="tv">TV Shows</button>
+                    <button class="tv-pill" data-filter="action">Action</button>
+                    <button class="tv-pill" data-filter="comedy">Comedy</button>
+                    <button class="tv-pill" data-filter="drama">Drama</button>
+                    <button class="tv-pill" data-filter="horror">Horror</button>
+                    <button class="tv-pill" data-filter="african">African</button>
+                </div>
+            </div>
+            <div class="tv-grid" id="tv-grid"></div>
+        </section>
+
+        <!-- ===== MY LIST VIEW ===== -->
+        <section id="tv-mylist" class="tv-view">
+            <h2>❤️ My List</h2>
+            <div class="tv-grid" id="tv-mylist-grid"></div>
+        </section>
+
+        <!-- ===== SEARCH VIEW ===== -->
+        <section id="tv-search" class="tv-view">
+            <div class="tv-search-box">
+                <input type="text" id="tv-search-input" placeholder="🔍 Search movies & shows..." autofocus>
+                <button id="tv-search-btn">Search</button>
+            </div>
+            <div class="tv-grid" id="tv-search-results"></div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="tv-footer">
+        <p>© 2026 Reelix TV · <a href="/ReelixTV/terms.html">Terms</a> · <a href="/ReelixTV/privacy.html">Privacy</a></p>
+    </footer>
+</div>
+
+<!-- ===== MODAL ===== -->
+<div id="tv-modal" class="tv-modal">
+    <div class="tv-modal-content">
+        <button class="tv-modal-close">✕</button>
+        <img id="tv-modal-poster" src="" alt="">
+        <div class="tv-modal-info">
+            <h2 id="tv-modal-title"></h2>
+            <p id="tv-modal-overview"></p>
+            <div class="tv-modal-actions">
+                <button class="tv-btn-primary" id="tv-modal-play">▶ Play</button>
+                <button class="tv-btn-secondary" id="tv-modal-mylist">+ Add to List</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PAYWALL ===== -->
+<div id="tv-paywall" class="tv-paywall">
+    <div class="tv-paywall-box">
+        <h2>🎬 Members Only</h2>
+        <p>Subscribe to watch unlimited movies and TV shows on your TV.</p>
+        <button class="tv-btn-primary" onclick="window.location.href='/ReelixTV/pricing.html'">Subscribe Now</button>
+        <button class="tv-btn-secondary" onclick="window.location.href='/ReelixTV/signup.html'">Start Free Trial</button>
+    </div>
+</div>
+
+<!-- ===== APP SCRIPT ===== -->
+<script type="module" src="/ReelixTV/tv/tv-app.js"></script>
+</body>
+</html>
